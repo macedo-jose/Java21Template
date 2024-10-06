@@ -1,1 +1,1 @@
-# Java21Template
+# NixEnvTemplate
