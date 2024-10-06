@@ -1,18 +1,21 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-dockerfile
 {
-	"name": "Ubuntu",
-	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "name": "nix-devcontainer",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/workspace",
+  
+  "userEnvProbe": "loginShell",
+  "updateRemoteUserUID": false,
 
-	"features": {}
+  "onCreateCommand": "nix-shell --command 'echo done building nix dev environment'",
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "java -version",
-
-	// Configure tool-specific properties.
-	// "customizations": {},
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+  "extensions": [
+    "arrterian.nix-env-selector",
+    "jnoortheen.nix-ide",
+    "fsevenm.run-it-on",
+    "ms-azuretools.vscode-docker",
+    "yzhang.markdown-all-in-one"
+  ]
 }
